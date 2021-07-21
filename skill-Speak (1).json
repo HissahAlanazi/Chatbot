@@ -1,0 +1,240 @@
+{
+  "intents": [
+    {
+      "intent": "Hello",
+      "examples": [
+        {
+          "text": "Good evening"
+        },
+        {
+          "text": "Good morning"
+        },
+        {
+          "text": "Hello"
+        },
+        {
+          "text": "Hi"
+        },
+        {
+          "text": "Welcome"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "No",
+      "examples": [
+        {
+          "text": "No"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "OK",
+      "examples": [
+        {
+          "text": "Ok"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "Yes",
+      "examples": [
+        {
+          "text": "how to use The Robot Control Panel"
+        },
+        {
+          "text": "Yes"
+        },
+        {
+          "text": "yes How I Can Use the robot arm control panel"
+        },
+        {
+          "text": "Yes How I Can Use The Robot Control Panel"
+        }
+      ],
+      "description": "answer about question"
+    }
+  ],
+  "entities": [],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    },
+    "from-sample": true
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "Anything else",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I didn't understand. You can try rephrasing."
+              },
+              {
+                "text": "Sorry, I can't serve you in any other field..😥"
+              },
+              {
+                "text": "I didn't get your meaning."
+              },
+              {
+                "text": "Can you reword your statement? I'm not understanding."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "dialog_node": "Anything else",
+      "previous_sibling": "node_1_1626880038731",
+      "disambiguation_opt_out": true
+    },
+    {
+      "type": "standard",
+      "title": "Ok",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": ".... do you want me to talk about the Robot Control Panel page?😉"
+              },
+              {
+                "text": "Did you like my page ?😊"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#OK",
+      "dialog_node": "node_1_1626880038731",
+      "previous_sibling": "node_6_1626878143022"
+    },
+    {
+      "type": "standard",
+      "title": "No",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Are you sure !!, type yes to help you about my page ."
+              },
+              {
+                "text": "Ops 😮 what do you want me to talk about ?"
+              },
+              {
+                "text": "Oh we sorry, we will try to improve it for the better .thank you"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#No",
+      "dialog_node": "node_6_1626878143022",
+      "previous_sibling": "node_7_1626729710927"
+    },
+    {
+      "type": "standard",
+      "title": "Hello",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Welcome, do you want me to talk about my page?🙄"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#Hello",
+      "dialog_node": "node_7_1626729266496",
+      "previous_sibling": "Welcome"
+    },
+    {
+      "type": "standard",
+      "title": "Yes",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "It's the page that contains the robot arm control panel. If you want to move the arm, choose from the sliders the appropriate movement of the arm and choose the save and Run  button and if you want to go to the Robot Control Panel choose the button Go to the Base Controlling"
+              },
+              {
+                "text": "It's the page that contains the Robot Control Panel. If you want to move the robot , choose the appropriate movement by pressing the buttons and if you want to move to the Robot Arm Control Panel, choose the button \" Back\" assigned to it at the bottom of the page"
+              },
+              {
+                "text": "Thank you"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#Yes",
+      "dialog_node": "node_7_1626729710927",
+      "previous_sibling": "node_7_1626729266496"
+    },
+    {
+      "type": "standard",
+      "title": "Welcome",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Welcome , I am very happy to see you 😃"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "welcome",
+      "dialog_node": "Welcome"
+    }
+  ],
+  "counterexamples": [],
+  "system_settings": {
+    "off_topic": {
+      "enabled": true
+    },
+    "disambiguation": {
+      "prompt": "Did you mean:",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "None of the above"
+    },
+    "human_agent_assist": {
+      "prompt": "Did you mean:"
+    },
+    "intent_classification": {
+      "training_backend_version": "v2"
+    },
+    "spelling_auto_correct": true
+  },
+  "learning_opt_out": false,
+  "name": "Speak",
+  "language": "en",
+  "description": ""
+}
